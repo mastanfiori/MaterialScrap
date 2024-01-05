@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <SelectDialog id="selectDialogWC" title="{i18n>WorkCenter}" items="{path:'/ZP_V_PP_PO_WRKCNTR', sorter: {
+				path: 'WorkCenter',
+				descending: false
+			}}" search=".onValueHelpWCSearch" confirm=".onValueHelpWCConfirm" cancel=".onValueHelpClose">
+        <StandardListItem id="SLISL" title="{WorkCenter}" description="{WorkCenterText}" info="{ManufacturingOrder}" />
+    </SelectDialog>
+</core:FragmentDefinition>

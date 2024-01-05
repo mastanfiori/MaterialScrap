@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <SelectDialog id="selectDialogCC" title="{i18n>CostCenter}" items="{path:'/C_CostCenterVH', sorter: {
+				path: 'CostCenter',
+				descending: false
+			}}" search=".onValueHelpCCSearch" confirm=".onValueHelpCCConfirm" cancel=".onValueHelpClose">
+        <StandardListItem id="SLICC" title="{CostCenter}" description="{CostCenterName}" />
+    </SelectDialog>
+</core:FragmentDefinition>

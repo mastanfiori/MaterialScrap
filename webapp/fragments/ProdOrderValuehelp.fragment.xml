@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <SelectDialog id="selectDialogPO" title="{i18n>ProductionOrder}" items="{path:'/I_ManufacturingOrder', sorter: {
+				path: 'ManufacturingOrder',
+				descending: false
+			}}" search=".onValueHelpPOSearch" confirm=".onValueHelpPOConfirm" cancel=".onValueHelpClose">
+        <StandardListItem id="SLIPO" title="{ManufacturingOrder}" description="{ManufacturingOrderText}" />
+    </SelectDialog>
+</core:FragmentDefinition>

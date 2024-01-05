@@ -1,0 +1,141 @@
+{
+  "_version": "1.48.0",
+  "sap.app": {
+    "id": "com.nttdata.subzero.ncfmaterialscrap",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.11.4",
+      "toolsId": "4d3e9043-5fbb-4665-acf9-bf015fc2cbed"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZMM361_MATERIAL_SCRAP_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "FIN_USER_DEFAULTPARAMETER_SRV": {
+          "uri": "/sap/opu/odata/sap/FIN_USER_DEFAULTPARAMETER_SRV/",
+          "type": "OData",
+          "settings": {
+              "localUri": "localService/FIN_USER_DEFAULTPARAMETER_SRV/metadata.xml"
+          }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.108.9",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "config": {
+			"sapFiori2Adaptation": true,
+			"fullWidth": "true"
+		},
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.nttdata.subzero.ncfmaterialscrap.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      },
+      "defaultValuesModel": {
+          "type": "sap.ui.model.odata.v2.ODataModel",
+          "settings": {
+              "defaultOperationMode": "Server",
+              "defaultBindingMode": "OneWay",
+              "defaultCountMode": "Request"
+          },
+          "dataSource": "FIN_USER_DEFAULTPARAMETER_SRV",
+          "preload": true
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "com.nttdata.subzero.ncfmaterialscrap.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteInitialView",
+          "pattern": "",
+          "target": [
+            "TargetInitialView"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetInitialView": {
+          "viewType": "XML",
+          "viewLevel": 1,
+          "viewId": "InitialView",
+          "viewName": "InitialView"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "com.nttdata.subzero.ncfmaterialscrap.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

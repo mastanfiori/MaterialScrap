@@ -1,0 +1,134 @@
+<mvc:View controllerName="com.nttdata.subzero.ncfmaterialscrap.controller.InitialView"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:l="sap.ui.layout"
+    xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:smartForm="sap.ui.comp.smartform"
+	xmlns:smartField="sap.ui.comp.smartfield" >
+    <Page id="page" title="{i18n>title}">
+        <customHeader>
+			<Bar id="_IDGenBar1">
+				<contentRight>
+					<!-- <Button id="_IDGenBut1" text="{i18n>NonScrapMaterial}" type="Emphasized" press="handleNonScrapMaterialPress" /> -->
+					<!-- <Button id="_IDGenBut2" text="{i18n>Save}"  press="handleSavePress" />
+					<Button id="_IDGenBut3" text="{i18n>Cancel}" press="handleCancelPress" /> -->
+				</contentRight>
+			</Bar>
+		</customHeader>
+        <content>
+        <f:SimpleForm id="SimpleFormChange354"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			title=""
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+            <f:toolbar>
+				<Toolbar id="TB1">
+					<Title id="Title1" text="{i18n>ScrapMaterial}"/>
+					<ToolbarSpacer id="_IDGenTBL"/>
+					<Button id="_IDGenBut2" text="{i18n>Save}"  press="handleSavePress" type="Emphasized"/>
+					<Button id="_IDGenBut3" text="{i18n>Clear}" press="handleCancelPress" type="Emphasized"/>
+				</Toolbar>
+			</f:toolbar>
+			<f:content>
+				<Label id="_IDGenLabel4" text="{i18n>Plant}" required="true"></Label>
+                <Text id="_IDGenText4" text="{parts:[{path:'PostModel>/Plant'},{path:'PostModel>/PlantName'}], formatter:'.formatter.idAndDescription'}"></Text>
+				<Label id="_IDGenLabelOperator" text="{i18n>Operator}" required="true"></Label>
+                <Input id="_IDGenTextOperator" value="{path:'PostModel>/Operator'}" showValueHelp="true" valueHelpRequest="onOperatorVH" change="onOperatorChange">
+					<layoutData>
+						<l:GridData id="_IDGenGridDataxp" span="XL1 L2 M2 S4" />
+					</layoutData>
+				</Input>
+				<Text id="_IDGenTextxcOperatorName" text="{PostModel>/OperatorName}"/>
+			    <Label id="_IDGenLabelPRDORD" text="{i18n>ProductionOrder}" required="true"></Label>
+				<Input id="_IDGenInputPRDORD" value="{PostModel>/ProductionOrder}" showValueHelp="true" valueHelpRequest="onPOVH" change="onProductionChange">
+					<!-- <layoutData>
+						<l:GridData id="_IDGenGridDataxp" span="XL1 L2 M2 S4" />
+					</layoutData> -->
+				</Input>
+				<!-- <Text id="_IDGenTextxp" text="{PostModel>/ProductionOrderText}"> -->
+				<!-- </Text> -->
+			    <Label id="_IDGenLabelWorkCenter" text="{i18n>WorkCenter}" required="true"></Label>
+				<Input id="_IDGenInputWorkCenter" value="{PostModel>/WorkCenter}" showValueHelp="true" valueHelpRequest="onWCVH" change="onWorkCenterChange">
+					<layoutData>
+						<l:GridData id="_IDGenGridDataxc" span="XL1 L2 M2 S4" />
+					</layoutData>
+				</Input>
+				<Text id="_IDGenTextxc" text="{PostModel>/WorkCenterText}">
+				</Text>
+				<Label id="_IDGenLabel1" text="{i18n>Material}" required="true"/>
+				<Input id="name" value="{PostModel>/Material}" showValueHelp="true" valueHelpRequest="onMatVH" change="onMaterialChange">
+					<layoutData>
+						<l:GridData id="_IDGenGridDatax" span="XL1 L2 M2 S4" />
+					</layoutData>
+				</Input>
+				<Text id="_IDGenTextx" text="{PostModel>/MaterialName}">
+				</Text>
+				<Label id="_IDGenLabel2" text="{i18n>Quantity}" required="true"/>
+				<Input id="_IDGenInput1" value="{PostModel>/Quantity}">
+					<layoutData>
+						<l:GridData id="_IDGenGridData1" span="XL1 L2 M2 S4" />
+					</layoutData>
+				</Input>
+                <!-- <Label id="_IDGenLabel3" text="{i18n>UOM}"></Label> -->
+                <Text id="_IDGenText3" text="{PostModel>/UoM}">
+				</Text>
+                <Label id="_IDGenLabelBatch" text="{i18n>Batch}" ></Label>
+				<Input id="_IDGenInputBatch" value="{PostModel>/Batch}"/>
+                <!-- <Label id="_IDGenLabel5" text="{i18n>StorageLocation}"></Label>
+				<Input id="_IDGenInput5" value="{PostModel>/StorageLocation}" showValueHelp="true" valueHelpRequest="onSLocVH"/> -->
+				<!-- <Label id="_IDGenLabel6" text="{i18n>StorageBin}" />
+				<Input id="_IDGenInput6" value="{PostModel>/StorageBin}" showValueHelp="false" valueHelpRequest="onSBinVH"/> -->
+                <!-- <Label id="_IDGenLabel7" text="{i18n>CostCenter}"></Label>
+                <Input id="_IDGenInput7" value="{PostModel>/CostCenter}" showValueHelp="true" valueHelpRequest="onCCVH"></Input> -->
+                <Label id="_IDGenLabel8" text="{i18n>DefectCode}" required="true"></Label>
+                <Input id="_IDGenInput8" value="{PostModel>/DefectCode}" showValueHelp="false" valueHelpRequest="onDefCodeVH"></Input>
+                <Label id="_IDGenLabel9" text="{i18n>Comments}"></Label>
+                <TextArea id="_IDGenInput9" value="{PostModel>/Comments}"></TextArea>
+			</f:content>
+		</f:SimpleForm>
+		<!-- <smartForm:SmartForm id="smartForm" editable="true"
+			editTogglable="false" editToggled="handleEditToggled"
+			validationMode="Async" entityType="ZC_RAP_U_Material_ScrapType" 
+			title="{i18n>ScrapMaterial}">
+			<smartForm:Group>
+				<smartForm:GroupElement label="{i18n>Material}">
+					<smartField:SmartField value="{Material}"/>
+				</smartForm:GroupElement>
+				<smartForm:GroupElement label="{i18n>Quantity}">
+					<smartField:SmartField value="{Quantity}" />
+				</smartForm:GroupElement>
+				<smartForm:GroupElement label="{i18n>UOM}" >
+					<smartField:SmartField value="{Uom}" />
+				</smartForm:GroupElement>
+				<smartForm:GroupElement label="{i18n>Plant}">
+					<smartField:SmartField value="{Plant}"/>
+				</smartForm:GroupElement>
+				<smartForm:GroupElement label="{i18n>StorageLocation}">
+					<smartField:SmartField value="{StorageLocation}" />
+				</smartForm:GroupElement>
+				<smartForm:GroupElement label="{i18n>StorageBin}">
+					<smartField:SmartField value="{StorageBin}" />
+				</smartForm:GroupElement>
+				<smartForm:GroupElement label="{i18n>CostCenter}">
+					<smartField:SmartField value="{CostCenter}" />
+				</smartForm:GroupElement>
+				<smartForm:GroupElement label="{i18n>DefectCode}">
+					<smartField:SmartField value="{DefectCode}" />
+				</smartForm:GroupElement>
+				<smartForm:GroupElement label="{i18n>Comments}">
+					<smartField:SmartField value="{Comments}" />
+				</smartForm:GroupElement>
+			</smartForm:Group>
+		</smartForm:SmartForm> -->
+        </content>
+    </Page>
+</mvc:View>

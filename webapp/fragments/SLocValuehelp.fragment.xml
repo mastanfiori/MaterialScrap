@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <SelectDialog id="selectDialogSLoc" title="{i18n>StorageLocation}" items="{path:'/C_MM_StorLocValueHelp', sorter: {
+				path: 'StorageLocation',
+				descending: false
+			}}" search=".onValueHelpSLocSearch" confirm=".onValueHelpSLocConfirm" cancel=".onValueHelpClose">
+        <StandardListItem id="SLISL" title="{StorageLocation}-{StorageLocationName}" description="{i18n>Plant}:{Plant}-{PlantName}" />
+    </SelectDialog>
+</core:FragmentDefinition>

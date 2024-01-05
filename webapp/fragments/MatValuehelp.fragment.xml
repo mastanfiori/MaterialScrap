@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <SelectDialog id="selectDialog" title="Materials" items="{path:'/C_MM_MaterialValueHelp', sorter: {
+				path: 'Material',
+				descending: false
+			}}" search=".onValueHelpMatSearch" confirm=".onValueHelpMatConfirm" cancel=".onValueHelpClose">
+        <StandardListItem id="SLI" title="{Material}" description="{MaterialName}" />
+    </SelectDialog>
+</core:FragmentDefinition>
